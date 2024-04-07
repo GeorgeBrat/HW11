@@ -5,7 +5,7 @@ public class Main {
         leapYear(2024);
 
         checkOS(0, 2023);
-        checkOS(1, 2024);
+        checkOS(1, 2025);
         delivery(100);
     }
 
@@ -22,19 +22,22 @@ public class Main {
     public static void checkOS(int os, int clientDeviceYear) {
         System.out.println("Задача №2");
         int currentYear = LocalDate.now().getYear();
-        if (os == 0 && clientDeviceYear >= currentYear) {
+        if (os == 0) {
+          if (clientDeviceYear > currentYear) {
             System.out.println("Установите версию приложения для iOS по ссылке");
-        } else if (os == 0 && clientDeviceYear < currentYear) {
+        } else if (clientDeviceYear <= currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
         }
-        if (os == 1 && clientDeviceYear >= currentYear) {
-            System.out.println("Установите версию приложения для Android по ссылке");
-        } else if (os == 1 && clientDeviceYear < currentYear) {
-            System.out.println("Установите облегченную версию приложения для Android по ссылке");
+        } else if (os == 1) {
+            if (clientDeviceYear > currentYear) {
+                System.out.println("Установите версию приложения для Android по ссылке");
+            } else if (clientDeviceYear <= currentYear) {
+                System.out.println("Установите облегченную версию приложения для Android по ссылке");
+            }
         }
     }
 
-    public static void delivery(int deliveryDistance) {
+    public static void delivery (int deliveryDistance) {
         System.out.println("Задание №3");
         int days = 1;
         if (deliveryDistance <= 20) {
